@@ -120,10 +120,11 @@ foreach ($lang in $languages) {
 Set-WinUserLanguageList $LanguageList -force
     
 #setting system local
-Write-Host "$systemlocale - Setting the system locale" -ForegroundColor Green
 Set-WinSystemLocale -SystemLocale $systemlocale
 Set-TimeZone -Name $timezone
 Set-Culture $systemlocale
 
 #remove folder when done
 Remove-Item -LiteralPath $LIPContent -Force -Recurse
+
+Write-host "Done with Languagepack Installations"
