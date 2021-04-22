@@ -18,6 +18,7 @@ $LanguagePackLocation = @{
 ####################
 # Download and extract the LanguagePacks
 ####################
+Write-Host 'Starting LanguagePack Installation'
 If (!(test-path $LIPContent)) {
     New-Item -ItemType Directory -Force -Path $LIPContent | Out-Null
 }
@@ -34,7 +35,8 @@ try {
     }
 }
 catch {
-    throw "Something went wrong downloading the language packs."
+    Write-Host 'Something went wrong downloading the language packs'
+    throw 'Something went wrong downloading the language packs.'
 }
     
 ##Disable Language Pack Cleanup##
@@ -127,4 +129,5 @@ Set-Culture $systemlocale
 #remove folder when done
 Remove-Item -LiteralPath $LIPContent -Force -Recurse
 
-Write-host "Done with Languagepack Installations"
+Write-host 'Done with Languagepack Installations'
+
